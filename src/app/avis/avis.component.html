@@ -1,4 +1,4 @@
 <div class="card-body">
-  <button (click)="aimer()" class="btn btn-primary" [disabled]="score >=1000">J'aime</button>
-  <button (click)="detester()" class="btn btn-danger" [disabled]="score <= -1000">Je déteste</button>
+  <button (click)="aimer()" class="btn btn-primary" [disabled]="aimable">J'aime</button>
+  <button (click)="detester()" class="btn btn-danger" [disabled]="detestable">Je déteste</button>
 </div>

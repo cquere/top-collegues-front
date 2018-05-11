@@ -7,7 +7,8 @@ import { Avis } from "../models";
   styleUrls: ["./avis.component.css"]
 })
 export class AvisComponent implements OnInit {
-  @Input() score: number;
+  @Input() aimable:boolean;
+  @Input() detestable:boolean;
   @Output() avisEvent: EventEmitter<Avis> = new EventEmitter<Avis>();
   constructor() {}
 
