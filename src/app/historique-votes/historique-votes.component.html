@@ -1,0 +1,20 @@
+  <div class="border border-dark">
+      <h2 class="text-center font-weight-bold">Historique</h2>
+  </div>
+  <div class="card-body border border-dark" >
+    <div class="card" *ngFor="let vote of votes">
+      <div class="row form-group">
+        <div class="col-sm-4 ">
+          <img src="{{vote.collegue.photo}}" alt="photo de {{vote.collegue.pseudo}}" class="img-fluid align-middle">
+        </div>
+        <div class="card-body  form-group col-sm-8">
+          <p class="card-text font-weight-bold">{{vote.collegue.pseudo}}</p>
+          <p class="card-text"> Une personne
+            <ng-container *ngIf="vote.avis == avisEnum.AIMER">apprecie</ng-container>
+            <ng-container *ngIf="vote.avis == avisEnum.DETESTER">déteste</ng-container>
+            {{vote.collegue.pseudo}} qui à maintenant un score de {{vote.collegue.score}}</p>
+          <button type="button" class="btn btn-link" (click)="supprimer(vote)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>

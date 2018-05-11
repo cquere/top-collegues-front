@@ -1,0 +1,14 @@
+<div class="container border border-dark">
+  <button disabled="disabled">Rafraichir la liste</button>
+
+  <div class="table-responsive-sm">
+    <table>
+      <tr class="row">
+        <td class="col-sm-4 card text-center" *ngFor="let col of collegues">
+          <app-collegue [collegue]="col" (nouveauVote)="traiterVote($event)"></app-collegue>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
