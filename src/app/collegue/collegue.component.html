@@ -1,6 +1,6 @@
-<div class = "container">
+<div class = "card-body">
 <img src="{{collegue.photo}}" alt="photo de {{collegue.pseudo}}" class="img-fluid" width="50%">
-<p>{{collegue.pseudo}}</p>
-<p>Score : {{collegue.score}}</p>
+<p class="card-text">{{collegue.pseudo}}</p>
+<p class="card-text">Score : {{collegue.score}}</p>
 </div>
 <app-avis [score]="collegue.score" (avisEvent)="traiterAvis($event)"></app-avis>

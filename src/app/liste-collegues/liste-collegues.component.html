@@ -2,8 +2,8 @@
   <button disabled="disabled">Rafraichir la liste</button>
 
   <div class="table-responsive-sm">
-    <table>
-      <tr class="row">
+    <table class = "card">
+      <tr class="row card-body">
         <td class="col-sm-4 card text-center" *ngFor="let col of collegues">
           <app-collegue [collegue]="col" (nouveauVote)="traiterVote($event)"></app-collegue>
         </td>
