@@ -13,16 +13,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { CollegueService } from './services/collegue.service';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 
 
 
 const appRoutes: Routes = [
 
-  { path: 'accueil', component: AccueilComponent }, // /page1 affiche le composant A
+  { path: '/accueil', component: AccueilComponent }, // /page1 affiche le composant A
 
-  { path: 'demo', component: DemoComponent }, // /page2 affiche le composant B
+  { path: '/demo', component: DemoComponent }, // /page2 affiche le composant B
 
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' } // redirige vers la route page1 par défaut
+
 ];
 
 
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     ListeColleguesComponent,
     HistoriqueVotesComponent,
     AccueilComponent,
-    MenuComponent
+    MenuComponent,
+    DetailCollegueComponent
   ],
   imports: [
     BrowserModule,

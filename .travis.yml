@@ -3,6 +3,7 @@ node_js:
   - "9"
 before_script:
   - npm install
+  - cp ./dist/top-collegues-front/index.html ./dist/top-collegues-front/404.html
 script: npm run build
 deploy:
   local-dir: dist/top-collegues-front
