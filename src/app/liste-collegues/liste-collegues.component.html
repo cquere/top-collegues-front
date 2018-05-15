@@ -1,10 +1,16 @@
 <div class="container border border-dark">
-  <button disabled="disabled">Rafraichir la liste</button>
 
+  <nav class="navbar navbar-light bg-light">
+      <button class="btn btn-outline-primary my-2 my-sm-0" >Rafraichir la liste</button>
+      <div class="form-inline">
+        <span class="text-warning">Filtrer par pseudo :</span>
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
+      </div>
+    </nav>
   <div class="table-responsive-sm">
     <table class = "card">
       <tr class="row card-body">
-        <td class="col-sm-4 card text-center" *ngFor="let col of collegues">
+        <td class="col-sm-4 card text-center" *ngFor="let col of collegues | filtrerCollegues: saisiePseudo ">
           <app-collegue [collegue]="col" (nouveauVote)="traiterVote($event)"></app-collegue>
         </td>
       </tr>

@@ -5,8 +5,8 @@
 <div class="container">
   <div class="card-body">
     <img src="{{collegue.photo}}" alt="photo de {{collegue.pseudo}}" class="img-fluid">
-    <p class="card-text text-center font-weight-bold">{{collegue.pseudo}}</p>
-    <p class="card-text text-center">{{collegue.score}}</p>
+    <p class="card-text text-center font-weight-bold">{{collegue.pseudo | uppercase}}</p>
+    <p class="card-text text-center" [innerHTML]="collegue.score | score "></p>
     <table class="table">
       <tr>
         <td>Nom :</td>
