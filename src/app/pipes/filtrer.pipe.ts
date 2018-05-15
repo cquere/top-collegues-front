@@ -5,8 +5,9 @@ import { Collegue } from "../models";
   name: "filtrerCollegues"
 })
 export class FiltrerPipe implements PipeTransform {
-  transform(value: Collegue[], args?: any): Collegue[] {
-    if (value == null || value == [] || args[0] == null) {return value};
-    return value.filter((col: Collegue) => col.pseudo.includes(args[0]));
+  transform(value: Collegue[], args: string): Collegue[] {
+    console.log(args)
+    if (value == null || value == [] || args == null ) {return value};
+    return value.filter((col: Collegue) => col.pseudo.includes(args));
   }
 }
