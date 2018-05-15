@@ -16,6 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { FiltrerPipe } from './pipes/filtrer.pipe';
+import { NouveauCollegueComponent } from './nouveau-collegue/nouveau-collegue.component';
+import { FormsModule }   from '@angular/forms';
 
 
 
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent }, // /page1 affiche le composant A
 
   { path: 'demo', component: DemoComponent },
+
+  { path: 'collegues/nouveau', component: NouveauCollegueComponent },
 
   { path: 'collegues/:pseudo', component: DetailCollegueComponent },
 
@@ -46,12 +50,14 @@ const appRoutes: Routes = [
     MenuComponent,
     DetailCollegueComponent,
     ScorePipe,
-    FiltrerPipe
+    FiltrerPipe,
+    NouveauCollegueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [CollegueService],
   bootstrap: [AppComponent]

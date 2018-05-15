@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="border border-dark text-center">
+  <app-bandeau></app-bandeau>
+</div>
+<div class="container">
+  <div class="text-center">
+    <h3>Ajouter un nouveau collègue</h3>
+  </div>
+<div class="form">
+   {{ajoutCollegue | json}}
+    <form (ngSubmit)="traiterAjout()">
+        <div class="form-group">
+          <label for="matricule">Matricule</label>
+          <input name="matricule" [(ngModel)]="ajoutCollegue.matricule" type="text" class="form-control" id="matricule" >
+        </div>
+        <div class="form-group">
+          <label for="pseudo">Pseudo</label>
+          <input name="pseudo" [(ngModel)]="ajoutCollegue.pseudo" type="text" class="form-control" id="pseudo">
+        </div>
+        <div class="form-group">
+            <label for="photo">URL photo</label>
+            <input name= "photo"[(ngModel)]="ajoutCollegue.urlImage" type="text" class="form-control" id="photo">
+          </div>
+        <button type="submit" class="btn btn-primary" >Ajouter</button>
+      </form>
+</div>
+
+</div>

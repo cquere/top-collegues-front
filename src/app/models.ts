@@ -12,14 +12,15 @@ export class Collegue {
     public prenom: string,
     public email: string,
     public adresse: string
-  ) {
-  }
+  ) {}
 }
 
 export class Vote {
-
-  constructor(public collegue:Collegue, public avis:Avis){
-
+  constructor(public collegue: Collegue, public avis: Avis) {}
 }
 
+export class AjoutCollegue {
+  matricule:string;
+  pseudo:string;
+  urlImage:string;
 }

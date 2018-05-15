@@ -2,6 +2,7 @@
 
   <nav class="navbar navbar-light bg-light">
       <button class="btn btn-outline-primary my-2 my-sm-0" >Rafraichir la liste</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" routerLink='/collegues/nouveau'>Ajouter un collègue</button>
       <div class="form-inline">
         <span class="text-warning">Filtrer par pseudo :</span>
         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
