@@ -1,3 +1,32 @@
-<p>
-  detail-collegue works!
-</p>
+<app-menu></app-menu>
+<div class="border border-dark text-center">
+  <app-bandeau></app-bandeau>
+</div>
+<div class="container">
+  <div class="card-body">
+    <img src="{{collegue.photo}}" alt="photo de {{collegue.pseudo}}" class="img-fluid">
+    <p class="card-text text-center font-weight-bold">{{collegue.pseudo}}</p>
+    <p class="card-text text-center">{{collegue.score}}</p>
+    <table class="table">
+      <tr>
+        <td>Nom :</td>
+        <td>{{collegue.nom}}</td>
+      </tr>
+      <tr>
+        <td>Prenom :</td>
+        <td>{{collegue.prenom}}</td>
+      </tr>
+      <tr>
+        <td>Email :</td>
+        <td>{{collegue.email}}</td>
+      </tr>
+      <tr>
+        <td>Adresse :</td>
+        <td>{{collegue.adresse}}</td>
+      </tr>
+    </table>
+    <div class="text-center">
+      <app-avis [aimable]="aimable" [detestable]="detestable" (avisEvent)="traiterAvis($event)"></app-avis>
+    </div>
+  </div>
+</div>

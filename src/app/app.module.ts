@@ -21,7 +21,9 @@ const appRoutes: Routes = [
 
   { path: 'accueil', component: AccueilComponent }, // /page1 affiche le composant A
 
-  { path: 'demo', component: DemoComponent }, // /page2 affiche le composant B
+  { path: 'demo', component: DemoComponent },
+
+  { path: 'collegues/:pseudo', component: DetailCollegueComponent },
 
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' } // redirige vers la route page1 par défaut
 

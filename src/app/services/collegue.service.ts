@@ -16,13 +16,15 @@ export class CollegueService {
     // récupérer la liste des collègues côté serveur
   }
 
+  recupererCollegues(pseudo:string): Promise<Collegue>{
+    return this._http.get<Collegue>(`${URL_BACKEND}/collegues/${pseudo}`).toPromise();
+  }
+
   donnerUnAvis(unCollegue: Collegue, avis: Avis): Promise<Collegue> {
     return this._http
       .patch<Collegue>(`${URL_BACKEND}/collegues/${unCollegue.pseudo}`, {
         action: avis.valueOf()
       })
       .toPromise();
-
-    // TODO Aimer ou Détester un collègue côté serveur
   }
 }

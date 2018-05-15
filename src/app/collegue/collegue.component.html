@@ -1,6 +1,6 @@
 <div class = "card-body">
 <img src="{{collegue.photo}}" alt="photo de {{collegue.pseudo}}" class="img-fluid" width="50%">
-<p class="card-text">{{collegue.pseudo}}</p>
+<p><a class="card-text " routerLink='/collegues/{{collegue.pseudo}}'>{{collegue.pseudo}}</a></p>
 <p class="card-text">Score : {{collegue.score}}</p>
 </div>
 <app-avis [aimable]="aimable" [detestable]="detestable" (avisEvent)="traiterAvis($event)"></app-avis>
