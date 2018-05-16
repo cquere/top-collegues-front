@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Collegue, Avis } from "../models";
+import { Collegue, Avis, AjoutCollegue } from "../models";
 import { environment } from "../../environments/environment";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 
@@ -26,5 +26,9 @@ export class CollegueService {
         action: avis.valueOf()
       })
       .toPromise();
+  }
+  nouveauCollegue(ajoutCollegue: AjoutCollegue): Promise<Collegue>{
+    return this._http.post<Collegue>(`${URL_BACKEND}/collegues/nouveau`, ajoutCollegue)
+    .toPromise()
   }
 }

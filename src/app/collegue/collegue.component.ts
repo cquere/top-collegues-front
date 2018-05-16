@@ -30,6 +30,7 @@ export class CollegueComponent implements OnInit {
         this.nouveauVote.emit(
           new Vote(
             new Collegue(
+              this.collegue.matricule,
               this.collegue.score,
               this.collegue.pseudo,
               this.collegue.photo,
