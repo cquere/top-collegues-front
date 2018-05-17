@@ -12,7 +12,7 @@
     <table class = "card">
       <tr class="row card-body">
         <td class="col-sm-4 card text-center" *ngFor="let col of collegues | filtrerCollegues: saisiePseudo ">
-          <app-collegue [collegue]="col" (nouveauVote)="traiterVote($event)"></app-collegue>
+          <app-collegue [collegue]="col" ></app-collegue>
         </td>
       </tr>
     </table>

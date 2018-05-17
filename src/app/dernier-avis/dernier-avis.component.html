@@ -1,0 +1,13 @@
+<div class="border border-dark text-center" >
+  <div *ngIf="lastVote == undefined; else elseBlock">
+    <span>Aucun vote pour le moment</span>
+  </div>
+  <ng-template #elseBlock>
+    <div *ngIf="lastVote.avis == avis.AIMER" class="text-success">
+      <span>J'aime {{lastVote.collegue.pseudo}}</span>
+      </div>
+      <div *ngIf="lastVote.avis == avis.DETESTER" class="text-danger">
+        <span>Je n'aime pas {{lastVote.collegue.pseudo}}</span>
+      </div>
+  </ng-template>
+</div>

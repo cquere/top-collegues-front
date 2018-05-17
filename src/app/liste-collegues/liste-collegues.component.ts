@@ -8,7 +8,6 @@ import { Collegue, Vote } from "../models";
 })
 export class ListeColleguesComponent implements OnInit {
   @Input() collegues: Collegue[];
-  @Output() nouveauVote: EventEmitter<Vote> = new EventEmitter<Vote>();
   saisiePseudo:string;
 
   constructor() {
@@ -16,9 +15,5 @@ export class ListeColleguesComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  traiterVote(vote:Vote) {
-    this.nouveauVote.emit(vote);
-  }
 
 }

@@ -15,7 +15,7 @@ export class NouveauCollegueComponent implements OnInit {
     matricule: "",
     pseudo: ""
   };
-  constructor(private cService: CollegueService, private router:Router) {}
+  constructor(private cService: CollegueService, private router: Router) {}
 
   ngOnInit() {
     this.ajoutCollegue.matricule = "";
@@ -25,13 +25,12 @@ export class NouveauCollegueComponent implements OnInit {
   traiterAjout() {
     this.errMessage.matricule = "";
     this.errMessage.pseudo = "";
-    this.cService
-      .nouveauCollegue(this.ajoutCollegue)
-      .then((col: Collegue) => {
+    this.cService.nouveauCollegue(this.ajoutCollegue).subscribe(
+      (col: Collegue) => {
         this.router.navigate(["/accueil"]);
         console.log(col);
-      })
-      .catch((err: HttpErrorResponse) => {
+      },
+      (err: HttpErrorResponse) => {
         if (
           err.error ==
           "Le matricule spécifié est deja présent dans la base de données"
@@ -46,7 +45,8 @@ export class NouveauCollegueComponent implements OnInit {
           this.errMessage.matricule = err.error;
         }
         // console.log(err);
-      });
+      }
+    );
     console.log(this.errMessage);
   }
 }

@@ -10,7 +10,6 @@ import { Router } from "@angular/router";
 })
 export class CollegueComponent implements OnInit {
   @Input() collegue: Collegue;
-  @Output() nouveauVote: EventEmitter<Vote> = new EventEmitter<Vote>();
   aimable: boolean;
   detestable: boolean;
 
@@ -21,32 +20,31 @@ export class CollegueComponent implements OnInit {
     this.detestable = this.collegue.score <= -1000;
   }
   traiterAvis(avis: Avis) {
-    this.cService
-      .donnerUnAvis(this.collegue, avis)
-      .then(nCol => {
+    this.cService.donnerUnAvis(this.collegue, avis).subscribe(
+      nCol => {
         this.collegue = nCol;
         this.aimable = this.collegue.score >= 1000;
         this.detestable = this.collegue.score <= -1000;
-        this.nouveauVote.emit(
-          new Vote(
-            new Collegue(
-              this.collegue.matricule,
-              this.collegue.score,
-              this.collegue.pseudo,
-              this.collegue.photo,
-              this.collegue.nom,
-              this.collegue.prenom,
-              this.collegue.email,
-              this.collegue.adresse
-            ),
-            avis
-          )
-        );
-      })
-      .catch(err => console.log(err));
+        this.cService.vote.next(new Vote(
+          new Collegue(
+            this.collegue.matricule,
+            this.collegue.score,
+            this.collegue.pseudo,
+            this.collegue.photo,
+            this.collegue.nom,
+            this.collegue.prenom,
+            this.collegue.email,
+            this.collegue.adresse
+          ),
+          avis
+        ))
+
+      },
+      err => console.log(err)
+    );
   }
 
-  redirect(){
+  redirect() {
     this.router.navigate([`./collegues/${this.collegue.pseudo}`]);
   }
 }
